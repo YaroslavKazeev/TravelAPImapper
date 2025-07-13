@@ -1,4 +1,4 @@
-# TravelAPImapper
+# TraveMapper
 
 This app has functionality similar to Google Maps, where the user can set a starting point and destination, and then the different routes will be displayed on the map embedded into the web page.
 
@@ -19,7 +19,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 #1 Clone this repository
-$ git clone https://github.com/YaroslavKazeev/TravelAPImapper.git
+$ git clone https://github.com/YaroslavKazeev/TravelMapper.git
 
 #2 Go into the repository
 $ cd TravelAPImapper
@@ -32,7 +32,7 @@ $ npm install
 
 ### Try on web
 
-The online version does not require any setup, you can try it here: [TravelAPImapper](https://yaroslavkazeev.github.io/TravelAPImapper/)
+The online version does not require any setup, you can try it here: [TravelAPImapper](https://yaroslavkazeev.github.io/Travelmapper/)
 
 ## Running the App
 
