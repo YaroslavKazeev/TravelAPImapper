@@ -11,6 +11,6 @@ export function createMainView(state) {
 
   const outputView = document.createElement("div");
   outputView.className = "container-column";
-  outputView.innerHTML = String.raw`<h2>OutputField</h2>`;
+  outputView.innerHTML = String.raw`<h2>OutputField +to change something</h2>`;
   appRoot.append(outputView);
 }
