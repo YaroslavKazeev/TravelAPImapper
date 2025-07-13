@@ -1,4 +1,4 @@
-import { createMainPage } from "/src/pages/mainPage.js";
+import { createMainPage } from "./pages/mainPage.js";
 import { loadPage } from "/src/util/loadPage.js";
 
 function loadApp() {
