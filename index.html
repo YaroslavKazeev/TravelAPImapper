@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
     <title>TravelMapper</title>
-    <!-- <script
-      async
-      src="https://maps.googleapis.com/maps/api/js?key=<key>&loading=async&libraries=places&callback=initMap"
-    ></script> -->
+    <!-- Google Maps script will be injected dynamically -->
     <link rel="stylesheet" href="./public/style.css" />
   </head>
   <body>
@@ -39,6 +36,14 @@
         <div id="outputWindow"></div>
       </div>
     </main>
+    <script type="module">
+      import { GOOGLE_MAPS_API_KEY } from "/env.js";
+      console.log(GOOGLE_MAPS_API_KEY);
+      const script = document.createElement("script");
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&loading=async&libraries=places&callback=initMap`;
+      script.async = true;
+      document.body.appendChild(script);
+    </script>
     <script src="src/app.js" type="module"></script>
   </body>
 </html>
