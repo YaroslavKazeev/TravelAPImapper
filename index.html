@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
     <title>TravelMapper</title>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJNSMT-1_vPUfvP9Ano8jRP6oP_bgJsQ&loading=async&libraries=places&callback=initMap"
+    ></script>
     <link rel="stylesheet" href="./public/style.css" />
   </head>
   <body>
@@ -15,10 +19,21 @@
       <div class="container-column">
         <div class="input-grid">
           <h2><label for="startLoc">Starting location</label></h2>
-          <input type="text" name="startLoc" id="startLoc" />
+          <input
+            type="text"
+            name="startLoc"
+            id="startLoc"
+            placeholder="Enter location"
+          />
           <h2><label for="endLoc">Destination</label></h2>
-          <input type="text" name="endLoc" id="endLoc" />
+          <input
+            type="text"
+            name="endLoc"
+            id="endLoc"
+            placeholder="Enter location"
+          />
         </div>
+        <div id="predictions-container"></div>
       </div>
       <div class="container-column">
         <div id="outputWindow"></div>
