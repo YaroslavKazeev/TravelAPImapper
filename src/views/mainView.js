@@ -1,8 +1,9 @@
 export function createMainView(state) {
   const outputWindow = document.querySelector("#outputWindow");
   outputWindow.innerHTML = "";
-  const outputView = document.createElement("div");
-
-  outputView.innerHTML = String.raw`<h2>OutputField +to change something</h2>`;
-  outputWindow.append(outputView);
+  outputWindow.innerHTML = String.raw`
+          <img
+            src="./public/dummyMap.png"
+            alt="The picture of the globe with the route across Atlantic ocean"
+          />`;
 }
