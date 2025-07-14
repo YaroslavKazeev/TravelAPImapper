@@ -15,20 +15,7 @@ export function createMainView(state) {
     // Define request options.
     let request = {
       input: "par",
-      sessionToken: sessionToken,
-      // locationBias: {
-      //   west: -122.44,
-      //   north: 37.8,
-      //   east: -122.39,
-      //   south: 37.78,
-      // },
     };
-
-    // Display the query string.
-    // const title = document.getElementById("title");
-    // title.appendChild(
-    //   document.createTextNode('Place predictions for "' + request.input + '":')
-    // );
     console.log(request.input);
 
     // Perform the query and display the results.
@@ -47,19 +34,6 @@ export function createMainView(state) {
 
       resultsElement.appendChild(listItem);
     }
-
-    // Show the first predicted place.
-    //   let place = suggestions[0].placePrediction.toPlace();
-
-    //   await place.fetchFields({
-    //     fields: ["displayName", "formattedAddress"],
-    //   });
-
-    //   const placeInfo = document.getElementById("prediction");
-
-    //   placeInfo.textContent = `
-    //   First predicted place: ${place.displayName} at ${place.formattedAddress}`;
-    // }
   }
   init();
 }
