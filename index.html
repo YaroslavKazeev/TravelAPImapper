@@ -12,7 +12,14 @@
       <h1>TravelMapper - a substitute for Google Maps</h1>
     </header>
     <main>
-      <div class="container-column"><h2>InputFields</h2></div>
+      <div class="container-column">
+        <div class="input-grid">
+          <h2><label for="startLoc">Starting location</label></h2>
+          <input type="text" name="startLoc" id="startLoc" />
+          <h2><label for="endLoc">Destination</label></h2>
+          <input type="text" name="endLoc" id="endLoc" />
+        </div>
+      </div>
       <div id="outputWindow" class="container-column"></div>
     </main>
     <script src="src/app.js" type="module"></script>
