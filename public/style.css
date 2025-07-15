@@ -40,3 +40,22 @@ img {
   grid-template-columns: max-content 1fr;
   gap: 0.5rem 1rem;
 }
+
+.suggestions {
+  margin-top: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+  border-radius: 4px;
+}
+.suggestion-item {
+  cursor: pointer;
+}
+.suggestion-item:hover {
+  background: #f0f0f0;
+}
+
+.error {
+  margin-top: 16px;
+  color: red;
+}

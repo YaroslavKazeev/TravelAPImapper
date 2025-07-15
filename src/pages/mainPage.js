@@ -1,6 +1,7 @@
 import { createMainView } from "../views/mainView.js";
 import { suggestionErrorView } from "../views/suggestionErrorView.js";
 import { fetchSuggestions } from "../util/fetchSuggestions.js";
+import { suggestionView } from "../views/suggestionView.js";
 
 export function createMainPage() {
   createMainView();
@@ -14,7 +15,11 @@ export function createMainPage() {
         if (input.value.trim()) {
           debounceTimeout = setTimeout(async () => {
             try {
-              await fetchSuggestions(input.value.trim(), sessionToken);
+              const suggestions = await fetchSuggestions(
+                input.value.trim(),
+                sessionToken
+              );
+              suggestionView(input, suggestions);
             } catch (error) {
               suggestionErrorView(error);
             }
