@@ -4,9 +4,7 @@ export function suggestionView(suggestions) {
   for (let suggestion of suggestions) {
     const placePrediction = suggestion.placePrediction;
     const listItem = document.createElement("li");
-
     listItem.appendChild(document.createTextNode(placePrediction.text.text));
-
     suggestionsContainer.appendChild(listItem);
   }
 }
