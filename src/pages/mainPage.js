@@ -6,20 +6,10 @@ export function createMainPage(state) {
 
 const sessionToken = new google.maps.places.AutocompleteSessionToken();
 
-//   let debounceTimeout;
-//   function debouncedSearch() {
-//     const input = document.getElementById("startLoc");
-//     clearTimeout(debounceTimeout);
-//     if (!input.value.trim()) {
-//       predictionsContainer.innerHTML = "";
-//       return;
-//     }
-//     debounceTimeout = setTimeout(() => {
-
-async function init() {
+async function fetchSuggestions(inputValue) {
   // Define request options.
   let request = {
-    input: "par",
+    input: inputValue,
     sessionToken,
   };
   console.log(request.input);
@@ -29,7 +19,6 @@ async function init() {
     await google.maps.places.AutocompleteSuggestion.fetchAutocompleteSuggestions(
       request
     );
-
   const resultsElement = document.getElementById("predictions-container");
   resultsElement.innerHTML = "";
 
@@ -42,7 +31,6 @@ async function init() {
     resultsElement.appendChild(listItem);
   }
 }
-// init();
 
 let debounceTimeout;
 const inputStart = document.getElementById("startLoc");
@@ -53,7 +41,7 @@ inputStart.addEventListener("input", () => {
   clearTimeout(debounceTimeout);
   if (inputStart.value.trim()) {
     debounceTimeout = setTimeout(() => {
-      init();
+      fetchSuggestions(inputStart.value.trim());
     }, 500);
   }
 });
@@ -62,7 +50,7 @@ inputEnd.addEventListener("input", () => {
   clearTimeout(debounceTimeout);
   if (inputEnd.value.trim()) {
     debounceTimeout = setTimeout(() => {
-      init();
+      fetchSuggestions(inputEnd.value.trim());
     }, 500);
   }
 });
