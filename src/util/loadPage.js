@@ -1,5 +1,5 @@
-export function loadPage(pageFactoryFn, state) {
+export function loadPage(pageFactoryFn) {
   const appRoot = document.querySelector("#outputWindow");
   appRoot.innerHTML = "";
-  pageFactoryFn(state);
+  pageFactoryFn();
 }

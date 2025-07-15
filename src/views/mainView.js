@@ -1,5 +1,5 @@
 import { adjustOutputHeight } from "../util/adjustOutputHeight.js";
-export function createMainView(state) {
+export function createMainView() {
   const outputWindow = document.querySelector("#outputWindow");
   outputWindow.innerHTML = "";
   outputWindow.innerHTML = String.raw`

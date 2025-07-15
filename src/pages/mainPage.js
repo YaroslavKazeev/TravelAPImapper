@@ -1,7 +1,8 @@
 import { createMainView } from "../views/mainView.js";
+import { suggestionView } from "../views/suggestionView.js";
 
-export function createMainPage(state) {
-  createMainView(state);
+export function createMainPage() {
+  createMainView();
 }
 
 const sessionToken = new google.maps.places.AutocompleteSessionToken();
@@ -18,17 +19,7 @@ async function fetchSuggestions(inputValue) {
     await google.maps.places.AutocompleteSuggestion.fetchAutocompleteSuggestions(
       request
     );
-  const suggestionsContainer = document.getElementById("suggestions-container");
-  suggestionsContainer.innerHTML = "";
-
-  for (let suggestion of suggestions) {
-    const placePrediction = suggestion.placePrediction;
-    const listItem = document.createElement("li");
-
-    listItem.appendChild(document.createTextNode(placePrediction.text.text));
-
-    suggestionsContainer.appendChild(listItem);
-  }
+  suggestionView(suggestions);
 }
 
 let debounceTimeout;
