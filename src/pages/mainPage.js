@@ -12,15 +12,14 @@ async function fetchSuggestions(inputValue) {
     input: inputValue,
     sessionToken,
   };
-  console.log(request.input);
 
   // Perform the query and display the results.
   const { suggestions } =
     await google.maps.places.AutocompleteSuggestion.fetchAutocompleteSuggestions(
       request
     );
-  const resultsElement = document.getElementById("predictions-container");
-  resultsElement.innerHTML = "";
+  const suggestionsContainer = document.getElementById("suggestions-container");
+  suggestionsContainer.innerHTML = "";
 
   for (let suggestion of suggestions) {
     const placePrediction = suggestion.placePrediction;
@@ -28,7 +27,7 @@ async function fetchSuggestions(inputValue) {
 
     listItem.appendChild(document.createTextNode(placePrediction.text.text));
 
-    resultsElement.appendChild(listItem);
+    suggestionsContainer.appendChild(listItem);
   }
 }
 
