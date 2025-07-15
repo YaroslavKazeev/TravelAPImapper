@@ -4,9 +4,19 @@ export function createMainPage(state) {
   createMainView(state);
 }
 
-async function init() {
-  let sessionToken = new google.maps.places.AutocompleteSessionToken();
+const sessionToken = new google.maps.places.AutocompleteSessionToken();
 
+//   let debounceTimeout;
+//   function debouncedSearch() {
+//     const input = document.getElementById("startLoc");
+//     clearTimeout(debounceTimeout);
+//     if (!input.value.trim()) {
+//       predictionsContainer.innerHTML = "";
+//       return;
+//     }
+//     debounceTimeout = setTimeout(() => {
+
+async function init() {
   // Define request options.
   let request = {
     input: "par",
@@ -21,6 +31,7 @@ async function init() {
     );
 
   const resultsElement = document.getElementById("predictions-container");
+  resultsElement.innerHTML = "";
 
   for (let suggestion of suggestions) {
     const placePrediction = suggestion.placePrediction;
@@ -31,8 +42,30 @@ async function init() {
     resultsElement.appendChild(listItem);
   }
 }
-init();
+// init();
 
+let debounceTimeout;
+const inputStart = document.getElementById("startLoc");
+const inputEnd = document.getElementById("endLoc");
+console.log(inputStart, inputEnd);
+
+inputStart.addEventListener("input", () => {
+  clearTimeout(debounceTimeout);
+  if (inputStart.value.trim()) {
+    debounceTimeout = setTimeout(() => {
+      init();
+    }, 500);
+  }
+});
+
+inputEnd.addEventListener("input", () => {
+  clearTimeout(debounceTimeout);
+  if (inputEnd.value.trim()) {
+    debounceTimeout = setTimeout(() => {
+      init();
+    }, 500);
+  }
+});
 // Initialize autocomplete service
 //   const autocompleteService = new google.maps.places.AutocompleteSuggestion();
 //   const predictionsContainer = document.getElementById("predictions-container");
