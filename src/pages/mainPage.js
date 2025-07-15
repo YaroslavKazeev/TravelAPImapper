@@ -33,27 +33,27 @@ async function fetchSuggestions(inputValue) {
 }
 
 let debounceTimeout;
+
+function inputEventListeners(input) {
+  input.addEventListener("input", () => {
+    clearTimeout(debounceTimeout);
+    if (input.value.trim()) {
+      debounceTimeout = setTimeout(async () => {
+        try {
+          await fetchSuggestions(input.value.trim());
+        } catch (error) {
+          console.log(error);
+        }
+      }, 500);
+    }
+  });
+}
+
 const inputStart = document.getElementById("startLoc");
 const inputEnd = document.getElementById("endLoc");
-console.log(inputStart, inputEnd);
+inputEventListeners(inputStart);
+inputEventListeners(inputEnd);
 
-inputStart.addEventListener("input", () => {
-  clearTimeout(debounceTimeout);
-  if (inputStart.value.trim()) {
-    debounceTimeout = setTimeout(() => {
-      fetchSuggestions(inputStart.value.trim());
-    }, 500);
-  }
-});
-
-inputEnd.addEventListener("input", () => {
-  clearTimeout(debounceTimeout);
-  if (inputEnd.value.trim()) {
-    debounceTimeout = setTimeout(() => {
-      fetchSuggestions(inputEnd.value.trim());
-    }, 500);
-  }
-});
 // Initialize autocomplete service
 //   const autocompleteService = new google.maps.places.AutocompleteSuggestion();
 //   const predictionsContainer = document.getElementById("predictions-container");
