@@ -22,17 +22,15 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 $ git clone https://github.com/YaroslavKazeev/TravelMapper.git
 
 #2 Go into the repository
-$ cd TravelAPImapper
+$ cd TravelMapper
 
 #3 Install dependencies
 $ npm install
 ```
 
-#4 Open `index.html` in your web browser
+#4 put the env.js file into the root directory of the app
 
-### Try on web
-
-The online version does not require any setup, you can try it here: [TravelAPImapper](https://yaroslavkazeev.github.io/Travelmapper/)
+#5 Open `index.html` in your web browser
 
 ## Running the App
 

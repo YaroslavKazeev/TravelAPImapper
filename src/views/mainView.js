@@ -1,16 +1,11 @@
-export function createMainView(state) {
-  const appRoot = document.querySelector("#app-root");
-  const title = document.createElement("h1");
-  title.textContent = "TravelMapper - a substitute for Google Maps";
-  appRoot.append(title);
-
-  const inputForm = document.createElement("div");
-  inputForm.className = "container-column";
-  inputForm.innerHTML = String.raw`<h2>InputFields</h2>`;
-  appRoot.append(inputForm);
-
-  const outputView = document.createElement("div");
-  outputView.className = "container-column";
-  outputView.innerHTML = String.raw`<h2>OutputField +to change something</h2>`;
-  appRoot.append(outputView);
+import { adjustOutputHeight } from "../util/adjustOutputHeight.js";
+export function createMainView() {
+  const outputWindow = document.querySelector("#outputWindow");
+  outputWindow.innerHTML = "";
+  outputWindow.innerHTML = String.raw`
+  <img
+    src="./public/dummyMap.png"
+    alt="The picture of the globe with the route across Atlantic ocean"
+  />`;
+  adjustOutputHeight();
 }
