@@ -1,23 +1,12 @@
 import { createMainView } from "../views/mainView.js";
-import { suggestionView } from "../views/suggestionView.js";
 import { suggestionErrorView } from "../views/suggestionErrorView.js";
+import { fetchSuggestions } from "../util/fetchSuggestions.js";
 
 export function createMainPage() {
   createMainView();
 }
 
 const sessionToken = new google.maps.places.AutocompleteSessionToken();
-async function fetchSuggestions(inputValue) {
-  let request = {
-    input: inputValue,
-    sessionToken,
-  };
-  const { suggestions } =
-    await google.maps.places.AutocompleteSuggestion.fetchAutocompleteSuggestions(
-      request
-    );
-  suggestionView(suggestions);
-}
 
 let debounceTimeout;
 function inputEventListeners(input) {
@@ -26,7 +15,7 @@ function inputEventListeners(input) {
     if (input.value.trim()) {
       debounceTimeout = setTimeout(async () => {
         try {
-          await fetchSuggestions(input.value.trim());
+          await fetchSuggestions(input.value.trim(), sessionToken);
         } catch (error) {
           console.log(error);
           suggestionErrorView(error);
