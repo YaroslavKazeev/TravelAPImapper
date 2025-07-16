@@ -1,3 +1,4 @@
+// Displays an error message in the suggestions container
 export function errorView(errorComment, error) {
   const suggestionsContainer = document.getElementById("suggestions-container");
   suggestionsContainer.className = "error";

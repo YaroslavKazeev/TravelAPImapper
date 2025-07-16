@@ -1,3 +1,4 @@
+// Main page logic: handles map view switching, input events, suggestions, and route fetching
 import { createDummyMapView } from "../views/dummyMapView.js";
 import { errorView } from "../views/errorView.js";
 import { fetchSuggestions } from "../util/fetchSuggestions.js";
@@ -7,11 +8,13 @@ import { createMapView } from "../views/mapView.js";
 
 export function createMainPage() {
   let errorComment;
+  // Show the dummy map view by default
   createDummyMapView();
   try {
     errorComment = "Google API initiation error";
     const sessionToken = new google.maps.places.AutocompleteSessionToken();
     let debounceTimeout;
+    // Helper to add debounced input event listener for suggestions
     function inputEventListener(input) {
       input.addEventListener("input", () => {
         clearTimeout(debounceTimeout);
@@ -28,7 +31,7 @@ export function createMainPage() {
               console.log(errorComment, error);
               errorView(errorComment, error);
             }
-          }, 500);
+          }, 500); // Debounce delay
         }
       });
     }
@@ -48,6 +51,7 @@ export function createMainPage() {
         if (!start || !end) {
           throw new Error("Please enter both start and destination locations");
         }
+        // Fetch route from Google Maps Directions API
         const result = await fetchRoutes(start, end);
         // Display the route on the map
         if (!window.directionsRenderer) {
@@ -56,6 +60,7 @@ export function createMainPage() {
           });
         }
         window.directionsRenderer.setDirections(result);
+        // Switch to the interactive map view
         createMapView();
       } catch (error) {
         createDummyMapView();
@@ -64,6 +69,7 @@ export function createMainPage() {
       }
     });
   } catch (error) {
+    // Handle errors during initialization
     console.log(errorComment, error);
     createDummyMapView();
     errorView(errorComment, error);

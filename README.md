@@ -39,10 +39,10 @@ $ npm install
 - Two text input fields for the starting point and destination location names.
 - Clickable suggestion of the location names as soon as the user makes input.
 - The placeholder with the picture of the map will be replaced with the embedded Google map when the user clicks the "Go" button.
-- Several routes are shown on the map.
+- Several driving routes are shown on the map.
 - Error handling when requests fail
 
-> **Note**: This app uses the public Google APIs, which has rate limits for unauthenticated requests.
+> **Note**: This app uses the public Google APIs, which begins to rate for more than 1000 requests.
 
 ## Code Architecture
 
@@ -63,4 +63,4 @@ This application follows the **Page/View/State Model**. This architecture separa
 
 At the highest root level, there are files and folders for project configuration and documentation. Only the native application components are displayed in the code architecture tree above. Each of these folders has its own README file. The entry point is the index.html file, which downloads the application to the browser.
 
-Some files and folders belong to third-party software used in the project. For example, package.json defines Node libraries.js; hidden folders configure Git, GitHub client, VSC extensions, etc.
+Some files and folders belong to third-party software used in the project. For example, .gitignore defines what content is not for the commiting to the remote repository, such as env.js.

@@ -1,8 +1,8 @@
+// Fetches driving routes between two locations using Google Maps DirectionsService
 export async function fetchRoutes(start, end) {
   return new Promise((resolve, reject) => {
-    if (!window.google || !window.google.maps) {
+    if (!window.map) {
       reject(new Error("Google Maps JS API not loaded"));
-      return;
     }
     const directionsService = new google.maps.DirectionsService();
     directionsService.route(
