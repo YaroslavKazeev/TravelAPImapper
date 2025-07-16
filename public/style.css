@@ -62,9 +62,6 @@ img {
 
 #outputWindow {
   position: relative;
-  height: 400px;
-  background: #eee;
-  /* overflow: hidden; */
 }
 
 #dummyMap {
