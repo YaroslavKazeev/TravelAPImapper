@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
     <title>TravelMapper</title>
-    <script type="module" src="src/map.js"></script>
+    <script src="src/map.js"></script>
     <script type="module">
       import { GOOGLE_MAPS_API_KEY } from "/env.js";
       const script = document.createElement("script");
@@ -36,12 +36,19 @@
             id="endLoc"
             placeholder="Enter location"
           />
+          <button id="goBtn">Go</button>
         </div>
         <div id="suggestions-container"></div>
       </div>
       <div class="container-column">
-        <div id="outputWindow"></div>
-      <div id="map" style="height: 400px; width: 100%;"></div>
+        <div id="outputWindow">
+          <img
+            id="dummyMap"
+            src="./public/dummyMap.png"
+            alt="The picture of the globe with the route across Atlantic ocean"
+          />
+          <div id="map"></div>
+        </div>
       </div>
     </main>
     <script src="src/app.js" type="module"></script>

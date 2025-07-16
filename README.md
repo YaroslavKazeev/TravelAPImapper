@@ -2,14 +2,14 @@
 
 This app has functionality similar to Google Maps, where the user can set a starting point and destination, and then the different routes will be displayed on the map embedded into the web page.
 
-This application is the project assignment is on the API chapter of HackYourFuture curriculum.
+This application is the project assignment and belongs to the API chapter of the HackYourFuture curriculum.
 
 The application uses:
 
 - Google Places API to provide real-time location suggestions as the user types.
 - Maps Embed API to show the map with the route between the origin and destination points.
 
-It demonstrates how to access an API from the front-end and how you might handle errors in a user-friendly way. It also implements a visual indicator for the user when the app is busy with network requests to APIs.
+It demonstrates how to access an API from the front-end and how you might handle errors in a user-friendly way.
 
 ## Getting Started
 
@@ -18,17 +18,17 @@ It demonstrates how to access an API from the front-end and how you might handle
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
-#1 Clone this repository
+#1 Clone this repository (alternatively, just download and unpack the file archive)
 $ git clone https://github.com/YaroslavKazeev/TravelMapper.git
 
 #2 Go into the repository
 $ cd TravelMapper
 
-#3 Install dependencies
+#3 Install Node.js if not installed globally
 $ npm install
 ```
 
-#4 put the env.js file into the root directory of the app
+#4 Put the env.js file with the Google API key into the root directory of the app
 
 #5 Open `index.html` in your web browser
 
@@ -37,9 +37,9 @@ $ npm install
 ### What You'll See
 
 - Two text input fields for the starting point and destination location names.
+- Clickable suggestion of the location names as soon as the user makes input.
 - The placeholder with the picture of the map will be replaced with the embedded Google map when the user clicks the "Go" button.
 - Several routes are shown on the map.
-- Loading indicators when fetching route data
 - Error handling when requests fail
 
 > **Note**: This app uses the public Google APIs, which has rate limits for unauthenticated requests.

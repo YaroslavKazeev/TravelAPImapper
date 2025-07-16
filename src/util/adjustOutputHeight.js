@@ -1,9 +1,12 @@
 export function adjustOutputHeight() {
   const viewportHeight = window.innerHeight;
   const headerHeight = document.querySelector("header").offsetHeight;
-  const totalPadding = 2 * 32;
+  const main = document.getElementsByTagName("main")[0];
+  const padding = parseInt(
+    window.getComputedStyle(main).getPropertyValue("padding-top")
+  );
   const outputWindow = document.querySelector("#outputWindow");
-  outputWindow.style.maxWidth = `${
-    viewportHeight - headerHeight - totalPadding
-  }px`;
+  return (outputWindow.style.height = `${
+    viewportHeight - headerHeight - 2 * padding
+  }px`);
 }
