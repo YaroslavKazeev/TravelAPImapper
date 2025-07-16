@@ -1,6 +1,6 @@
-export function suggestionErrorView(error) {
+export function errorView(errorComment, error) {
   const suggestionsContainer = document.getElementById("suggestions-container");
   suggestionsContainer.className = "error";
-  suggestionsContainer.innerHTML = `<p>Error loading suggestions.</p>
+  suggestionsContainer.innerHTML = `<p>${errorComment}</p>
   <p>${error.message}</p>`;
 }
