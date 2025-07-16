@@ -74,3 +74,19 @@ img {
   height: 100%;
   z-index: 1;
 }
+
+button {
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: fit-content;
+  display: inline-block;
+}
+button:hover,
+button:focus {
+  background: #218838;
+  outline: none;
+}
