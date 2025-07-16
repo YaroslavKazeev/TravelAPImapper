@@ -2,6 +2,7 @@ import { createMainView } from "../views/mainView.js";
 import { suggestionErrorView } from "../views/suggestionErrorView.js";
 import { fetchSuggestions } from "../util/fetchSuggestions.js";
 import { suggestionView } from "../views/suggestionView.js";
+import { fetchRoutes } from "../util/fetchRoutes.js";
 
 export function createMainPage() {
   createMainView();
@@ -44,7 +45,6 @@ export function createMainPage() {
           return;
         }
         try {
-          const { fetchRoutes } = await import("../util/fetchRoutes.js");
           const result = await fetchRoutes(start, end);
           // Display the route on the map
           if (!window.directionsRenderer) {
