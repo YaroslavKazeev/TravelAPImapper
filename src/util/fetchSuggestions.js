@@ -1,3 +1,4 @@
+// Fetches location suggestions from Google Maps Places Autocomplete API
 export async function fetchSuggestions(inputValue, sessionToken) {
   let request = {
     input: inputValue,

@@ -1,3 +1,4 @@
+// Set the height of the output window so it fits below the header, accounting for padding
 export function adjustOutputHeight() {
   const viewportHeight = window.innerHeight;
   const headerHeight = document.querySelector("header").offsetHeight;
