@@ -3,6 +3,7 @@ import { suggestionErrorView } from "../views/suggestionErrorView.js";
 import { fetchSuggestions } from "../util/fetchSuggestions.js";
 import { suggestionView } from "../views/suggestionView.js";
 import { fetchRoutes } from "../util/fetchRoutes.js";
+import { createMapView } from "../views/mapView.js";
 
 export function createMainPage() {
   createMainView();
@@ -53,7 +54,9 @@ export function createMainPage() {
             });
           }
           window.directionsRenderer.setDirections(result);
+          createMapView();
         } catch (error) {
+          createMainView();
           alert("Failed to fetch route: " + error.message);
         }
       });
