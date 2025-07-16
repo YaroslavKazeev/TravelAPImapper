@@ -10,6 +10,7 @@ export function suggestionView(input, suggestions) {
     listItem.onclick = () => {
       input.value = listItem.textContent;
       suggestionsContainer.innerHTML = "";
+      suggestionsContainer.className = "";
     };
     suggestionsContainer.appendChild(listItem);
   }
