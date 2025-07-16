@@ -4,5 +4,6 @@ export function createMapView() {
   const map = document.getElementById("map");
   dummyMap.style.visibility = "hidden";
   map.style.visibility = "visible";
-  adjustOutputHeight();
+  const outputWindow = document.querySelector("#outputWindow");
+  outputWindow.style.maxWidth = "";
 }

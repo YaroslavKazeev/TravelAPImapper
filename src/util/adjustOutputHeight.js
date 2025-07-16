@@ -6,7 +6,7 @@ export function adjustOutputHeight() {
     window.getComputedStyle(main).getPropertyValue("padding-top")
   );
   const outputWindow = document.querySelector("#outputWindow");
-  outputWindow.style.maxWidth = `${
+  return (outputWindow.style.height = `${
     viewportHeight - headerHeight - 2 * padding
-  }px`;
+  }px`);
 }

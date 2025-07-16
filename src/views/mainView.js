@@ -6,5 +6,6 @@ export function createMainView() {
   const dummyMap = document.getElementById("dummyMap");
   dummyMap.style.visibility = "visible";
 
-  adjustOutputHeight();
+  const outputWindow = document.querySelector("#outputWindow");
+  outputWindow.style.maxWidth = adjustOutputHeight();
 }
