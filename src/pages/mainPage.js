@@ -32,6 +32,32 @@ export function createMainPage() {
     const inputEnd = document.getElementById("endLoc");
     inputEventListener(inputStart);
     inputEventListener(inputEnd);
+
+    // Add Go button event listener
+    const goBtn = document.getElementById("goBtn");
+    if (goBtn) {
+      goBtn.addEventListener("click", async () => {
+        const start = inputStart.value.trim();
+        const end = inputEnd.value.trim();
+        if (!start || !end) {
+          alert("Please enter both start and destination locations.");
+          return;
+        }
+        try {
+          const { fetchRoutes } = await import("../util/fetchRoutes.js");
+          const result = await fetchRoutes(start, end);
+          // Display the route on the map
+          if (!window.directionsRenderer) {
+            window.directionsRenderer = new google.maps.DirectionsRenderer({
+              map: window.map,
+            });
+          }
+          window.directionsRenderer.setDirections(result);
+        } catch (error) {
+          alert("Failed to fetch route: " + error.message);
+        }
+      });
+    }
   } catch (error) {
     console.log(error);
     suggestionErrorView(error);
