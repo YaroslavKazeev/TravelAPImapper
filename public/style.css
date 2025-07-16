@@ -83,7 +83,6 @@ button {
   cursor: pointer;
   transition: background 0.2s;
   width: fit-content;
-  display: inline-block;
 }
 button:hover,
 button:focus {
